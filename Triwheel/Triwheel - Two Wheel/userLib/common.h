@@ -3,20 +3,20 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "inc/hw_memmap.h"
-#include "inc/hw_types.h"
-#include "inc/hw_gpio.h"
-#include "inc/hw_ints.h"
-#include "inc/hw_uart.h"
-#include "inc/tm4c123gh6pm.h"
-#include "driverlib/sysctl.h"
-#include "driverlib/gpio.h"
-#include "driverlib/interrupt.h"
-#include "driverlib/timer.h"
-#include "driverlib/uart.h"
-#include "driverlib/pin_map.h"
-#include "driverlib/pwm.h"
-#include "driverlib/qei.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/inc/hw_memmap.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/inc/hw_types.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/inc/hw_gpio.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/inc/hw_ints.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/inc/hw_uart.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/inc/tm4c123gh6pm.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/driverlib/sysctl.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/driverlib/gpio.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/driverlib/interrupt.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/driverlib/timer.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/driverlib/uart.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/driverlib/pin_map.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/driverlib/pwm.h"
+#include "C:/Users/hp/Desktop/TivaWare_C_Series-2.1.2.111/driverlib/qei.h"
 
 enum {A, B};
 extern int32_t maxPWM, minPWM;
