@@ -6,7 +6,7 @@
 
 struct point { float x; float y; };
 struct uniCycleState {float vx; float vy; float w;};
-struct omniDriveState {int aRPM; int bRPM; int cRPM; int dRPM};
+struct omniDriveState {int aRPM; int bRPM; int cRPM; int dRPM;};
 
 float sigmoid(float x);
 float degreeToRadian(float degree);

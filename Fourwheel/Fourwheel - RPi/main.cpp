@@ -10,6 +10,7 @@
 #include "minimu9.h"
 #include "ps2USB.h"
 #include "timerInterrupt.h"
+#include "driveConfig.h"
 
 #define powerOffButton 4
 #define headingRefButton 0
@@ -115,16 +116,15 @@ struct uniCycleState getDesiredUniCycleState() {
         headingCorrection = 0;
 	}
 	desiredUniCycleState.w = headingCorrection;
-	desiredUniCycleState.vy = (128 - ps2_getY()) * maxVELOCITY / 128;
-	desiredUniCycleState.vx = -(128 - ps2_getX()) * maxVELOCITY / 128;
-//	printf("%f\n",desiredUniCycleState.vy);
-//	printf("%f\n",desiredUniCycleState.vx);
+	desiredUniCycleState.vy = (128 - ps2_getY()) * maxVelocity / 128;
+	desiredUniCycleState.vx = -(128 - ps2_getX()) * maxVelocity / 128;
+	printf("%f ",desiredUniCycleState.vy);
+	printf("%f ; ",desiredUniCycleState.vx);
 	return desiredUniCycleState;
 }
 
 void transmitOmniState(struct omniDriveState state) {
-    state = rpmLimiter(state);
-//    printf("%d %d %d %d\r\n", state.aRPM, state.bRPM, state.cRPM, state.dRPM);
+    printf("%d %d %d %d\r\n", state.aRPM, state.bRPM, state.cRPM, state.dRPM);
     serialPutchar(rpiPort, 0x0A);
     serialPutchar(rpiPort, encodeByte(state.aRPM));
     serialPutchar(rpiPort, encodeByte(state.bRPM));
@@ -136,7 +136,7 @@ void timerHandler() {
 	if(!ps2Ready || !imuReady) {
 		transmitOmniState(stopState);
 	} else {
-		transmitOmniState(transformUniToOmni(getDesiredUniCycleState(), 0));
+		transmitOmniState(transformUniToOmni(getDesiredUniCycleState(), 90));
 		digitalWrite(miscLED, !digitalRead(miscLED));
 	}
 }
@@ -174,8 +174,8 @@ int main() {
 	enableSlowFuncInterrupt(&slowTimerHandler);
 	
 	initPS2();
-	enableCircleButton(&CircleButtonPressed, &CircleButtonReleased);
-	enableTriangleButton(&TriangleButtonPressed, &TriangleButtonReleased);
+	//enableCircleButton(&CircleButtonPressed, &CircleButtonReleased);
+	//enableTriangleButton(&TriangleButtonPressed, &TriangleButtonReleased);
 	initIMU();
 	initTimer(1000000/PIDfrequency, &timerHandler);
 	while(1) {
