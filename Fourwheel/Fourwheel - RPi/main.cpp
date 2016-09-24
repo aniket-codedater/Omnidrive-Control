@@ -19,7 +19,7 @@
 #define slowLoopLED 27
 #define miscLED 28
 
-#define HEADING_TOL 1
+#define HEADING_TOL 2
 
 bool ps2Ready = false;
 bool imuReady = false;
@@ -168,7 +168,7 @@ int main() {
 	digitalWrite(slowLoopLED, LOW);
 	digitalWrite(miscLED, LOW);
 	
-	initPIDController(0.0, 0.0, 0.0, headingControl);
+	initPIDController(0.05, 0.0, 1.0, headingControl);
 	enablePS2StatusInterrupt(&ps2Activated, &ps2Deactivated);
 	enableIMUStatusInterrupt(&imuActivated, &imuDeactivated);
 	enableSlowFuncInterrupt(&slowTimerHandler);

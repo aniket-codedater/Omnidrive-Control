@@ -12,7 +12,7 @@
 #define theta_D degreeToRadian(315.0)
 
 //Motion constraints specifications
-#define maxRPM			280	//in rpm
+#define maxRPM			252	//in rpm
 #define maxVelocity		300 //in cm/s
 
 //Frequency specifications
